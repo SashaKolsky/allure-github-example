@@ -1,16 +1,17 @@
 package com.dictality.allure;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Allure;
-import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -22,6 +23,7 @@ public class GithubTest {
 
     @Test
     public void searchForIssue(){
+        Configuration.headless = true;
         SelenideLogger.addListener("allure", new AllureSelenide());
         open("https://github.com");
         $(".header-search-input").click();
@@ -36,8 +38,10 @@ public class GithubTest {
 
     @Test
     public void searchForIssueSelenium(){
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless", "--window-size=1920,1200");
+        WebDriver driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().fullscreen();
 
         Allure.step("Navigating to https://github.com");

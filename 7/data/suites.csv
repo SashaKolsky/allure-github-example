@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue May 02 02:26:07 GMT 2023","Tue May 02 02:26:18 GMT 2023","10501","","com.dictality.allure.GithubTest","","com.dictality.allure.GithubTest","searchForIssueSelenium","searchForIssueSelenium()",""
+"passed","Tue May 02 02:26:18 GMT 2023","Tue May 02 02:26:26 GMT 2023","8056","","com.dictality.allure.GithubTest","","com.dictality.allure.GithubTest","searchForIssue","searchForIssue()",""
